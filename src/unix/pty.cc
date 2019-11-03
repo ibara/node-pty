@@ -29,6 +29,9 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
+#include <pty.h>
+#include <util.h>
+
 /* forkpty */
 /* http://www.gnu.org/software/gnulib/manual/html_node/forkpty.html */
 #if defined(__GLIBC__) || defined(__CYGWIN__)
