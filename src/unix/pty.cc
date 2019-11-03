@@ -29,9 +29,6 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
-#include <pty.h>
-#include <util.h>
-
 /* forkpty */
 /* http://www.gnu.org/software/gnulib/manual/html_node/forkpty.html */
 #if defined(__GLIBC__) || defined(__CYGWIN__)
@@ -47,6 +44,9 @@
 #endif
 
 #include <termios.h> /* tcgetattr, tty_ioctl */
+
+extern pid_t forkpty(int *, char *, struct termios *, struct winsize *);
+extern int openpty(int *, int *, char *, struct termios *, struct winsize *);
 
 /* Some platforms name VWERASE and VDISCARD differently */
 #if !defined(VWERASE) && defined(VWERSE)
